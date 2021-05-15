@@ -1,5 +1,9 @@
-let today = moment();
-$("#currentDay").text(today.format("MMM Do, YYYY h:mm:s a"));
+//Setting luxon time in the header
+let DateTime= luxon.DateTime;
+let now = DateTime.local();
+let currentDay = document.getElementById("currentDay")
+currentDay.innerText = now.toLocaleString(DateTime.DATETIME_MED)
+
 
 let saveButton = document.querySelectorAll(".saveBtn");
 /*let comment = document.getElementById("description")*/
@@ -18,12 +22,12 @@ function renderLastAppt() {
   $('#hour6 .description').val(localStorage.getItem('hour6'));
 }
 
-/*saveButton.addEventListener("click", function (event) {
+saveButton.addEventListener("click", function (event) {
   event.preventDefault();
   let note = $(this).siblings('.description').val()
   let time = $(this).parent().attr("id")
   localStorage.setItem(time, note);
-});*/
+});
 
 function init() {
   console.log(saveButton)
