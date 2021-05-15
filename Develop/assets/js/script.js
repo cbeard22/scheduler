@@ -1,8 +1,8 @@
 let today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY h:mm:s a"));
 
-let saveButton = document.querySelector(".saveBtn");
-//let comment = document.getElementById("description")
+let saveButton = document.querySelectorAll(".saveBtn");
+/*let comment = document.getElementById("description")*/
 
 function renderLastAppt() {
 
@@ -18,18 +18,15 @@ function renderLastAppt() {
   $('#hour6 .description').val(localStorage.getItem('hour6'));
 }
 
-
-saveButton.addEventListener("click", function (event) {
+/*saveButton.addEventListener("click", function (event) {
   event.preventDefault();
   let note = $(this).siblings('.description').val()
   let time = $(this).parent().attr("id")
   localStorage.setItem(time, note);
-
-  renderLastAppt();
-});
+});*/
 
 function init() {
-
+  console.log(saveButton)
   renderLastAppt();
 }
 init();
