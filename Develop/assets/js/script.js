@@ -1,72 +1,43 @@
 let today = moment();
 $("#currentDay").text(today.format("MMM Do, YYYY h:mm:s a"));
 
-let saveButton= document.getElementById("btn saveBtn col-md-1");
-let comment=document.getElementById("col-md-10 description")
-/*console.log(this);
-    let text = $(this).siblings(".input").val();
-    let time = $(this).parent().attr("id");
+let saveButton = document.querySelector(".saveBtn");
+//let comment = document.getElementById("description")
 
-    localStorage.setItem(time, text, JSON.stringify());*/
+function renderLastAppt() {
 
-
-function saveLastAppt() {
-
-    let appt = {comment:""
+  $('#hour9 .description').val(localStorage.getItem('hour9'));
+  $('#hour10 .description').val(localStorage.getItem('hour10'));
+  $('#hour11 .description').val(localStorage.getItem('hour11'));
+  $('#hour12 .description').val(localStorage.getItem('hour12'));
+  $('#hour1 .description').val(localStorage.getItem('hour1'));
+  $('#hour2 .description').val(localStorage.getItem('hour2'));
+  $('#hour3 .description').val(localStorage.getItem('hour3'));
+  $('#hour4 .description').val(localStorage.getItem('hour4'));
+  $('#hour5 .description').val(localStorage.getItem('hour5'));
+  $('#hour6 .description').val(localStorage.getItem('hour6'));
 }
-;
 
-    localStorage.setItem("appt", JSON.stringify(appt));
+
+saveButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  let note = $(this).siblings('.description').val()
+  let time = $(this).parent().attr("id")
+  localStorage.setItem(time, note);
+
+  renderLastAppt();
+});
+
+function init() {
+
+  renderLastAppt();
 }
-    function renderLastAppt() {
+init();
 
-        let lastAppt = JSON.parse (localStorage.getItem("appt"));
 
-        if (lastAppt !== null) {
-            document.getElementById("appt").innerHTML=appt;
-        }
-        else {
-                return;
-            }
-        }
-    
 
-    saveButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        saveLastAppt();
-        renderLastAppt();
-      });
-      
-      // The init() function fires when the page is loaded 
-      function init() {
-        // When the init function is executed, the code inside renderLastGrade function will also execute
-        renderLastAppt();
-      }
-      init();
 
-    
-
-/*$("#hour9 .input").val(localStorage.getItem("hour9")
-);
-$("#hour10 .input").val(localStorage.getItem("hour10")
-);
-$("#hour11 .input").val(localStorage.getItem("hour11")
-);
-$("#hour12 .input").val(localStorage.getItem("hour12")
-);
-$("#hour1 .input").val(localStorage.getItem("hour1")
-);
-$("#hour2 .input").val(localStorage.getItem("hour2")
-);
-$("#hour3 .input").val(localStorage.getItem("hour3")
-);
-$("#hour4 .input").val(localStorage.getItem("hour4")
-);
-$("#hour5 .input").val(localStorage.getItem("hour5")
-);
-$("#hour6 .input").val(localStorage.getItem("hour6")
-);
-
+/*
 
 const rows = document.getElementsByClassName("row time-block");
 let currentHour = parseInt(moment().format(''));
