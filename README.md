@@ -5,7 +5,7 @@ The purpose of this project was to create a scheduling site that would utilize l
 
 # Deployable Website:
 
-https://cbeard22.github.io/scheduler/scheduler
+https://cbeard22.github.io/scheduler/
 
 # Look
 ![day scheduler](https://user-images.githubusercontent.com/81100259/118384416-73c1c780-b5cb-11eb-924f-481e763cfcb2.png)
